@@ -1,0 +1,25 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+.smt {
+    
+    color: #fff;
+    text-align: center;
+    /* background-image: url(/images/typesource/saturday.jpg); */
+    background-size: cover;
+    background-color: #d2bd9c;
+    font-family: 'Rock Salt', sans-serif;
+    padding-top: 11em;
+    /* padding-bottom: 14em; */
+    background-image: url(https://c.pxhere.com/photos/b5/8e/bottles_bread_condiments_containers_food_handmade_indoors_jar-1270297.jpg!d);
+  }
+  
+  .smt-r1 {
+    font-size: 9em;
+    line-height: 1.4em;
+  }
+  
+  .smt-r2 {
+    font-size: 6em;
+    line-height: 1em;
+  }
