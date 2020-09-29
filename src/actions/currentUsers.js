@@ -15,10 +15,8 @@ export const clearCurrentUser = () => {
 }
 
 
-// asynchronous 
-// create a new user
+
 export const signup = (userData, history) => {
-    //console.log("action", userData)
     const HEROKU_URL = 'http://localhost:5000/'
     return dispatch => {
         return fetch(`${HEROKU_URL}/api/v1/signup`, {

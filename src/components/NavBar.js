@@ -7,9 +7,9 @@ const NavBar = (props) => {
     return (
 
         <div className="Navbar">   
-            <Grid padded className="tablet computer only">
-                <Container>
-                    <Menu borderless inverted size="huge">
+            {/* <Grid padded className="tablet computer only"> */}
+                {/* <Container> */}
+                    <Menu inverted size="huge">
                         <Menu.Item header>
                             <Icon className="coffee icon"></Icon>
                             <Link to="/">Snack Overflow</Link>
@@ -18,15 +18,15 @@ const NavBar = (props) => {
                             <Link to="/main">Home</Link>
                         </Menu.Item>
                         <Menu.Item >
-                            <Link to="/recipes">Recipes</Link>
+                            <Link to="/recipes"> Find Recipes</Link>
                         </Menu.Item>
-                        <Menu.Item as={Link} to="/recipes" name="new" >
-                            Create Recipes
+                        <Menu.Item >
+                            <Link to="/create"> Create Recipes</Link>
                         </Menu.Item>
                         <Menu.Menu position="right">
                             <Dropdown text="My Account" className="item">
-                                <Dropdown.Menu>
-                                    <Dropdown.Item><Link to="/myaccount">Favorited Recipes</Link></Dropdown.Item>
+                                <Dropdown.Menu >
+                                    <Dropdown.Item ><Link to="/myaccount">Favorite Recipes</Link></Dropdown.Item>
                                     <Dropdown.Item>New Recipes</Dropdown.Item>
                                     <Dropdown.Item>My Recipes</Dropdown.Item>
                                     <Dropdown.Item><Link to="/logout">Log Out</Link></Dropdown.Item>
@@ -35,8 +35,8 @@ const NavBar = (props) => {
                             </Dropdown>
                         </Menu.Menu>
                     </Menu>
-                </Container>
-            </Grid>
+                {/* </Container> */}
+            {/* </Grid> */}
             
         </div>
 

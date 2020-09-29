@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Home from './components/Home.js';
 import Main from './components/Main.js'
 import NavBar from './components/NavBar.js';
+import Create from './components/Create.js';
 import Login from './components/Login.js';
 import Footer from './components/Footer.js';
 import Logout from './components/Logout.js';
@@ -31,6 +32,7 @@ class App extends Component {
               <ProtectedRoute exact path='/logout' component={Logout}/>
               <ProtectedRoute exact path='/recipes' component={RandomRecipesContainer}/>
               <ProtectedRoute exact path='/recipes/:id' component={Recipe} />
+              <ProtectedRoute exact path='/create' component={Create} />
               <ProtectedRoute exact path='/myaccount' component={UserContainer} />
       
               <Route exact path='/' render={() => <Home loggedin={this.props.loggedin} />}/>
