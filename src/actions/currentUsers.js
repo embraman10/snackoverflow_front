@@ -35,7 +35,7 @@ export const signup = (userData, history) => {
             } else {
                 dispatch(setCurrentUser(user))
                 dispatch(resetSignupForm())
-                history.push('/recipes')
+                history.push('/main')
             }
             
         })
@@ -61,7 +61,7 @@ export const login = (userData, history) => {
             } else {
                 dispatch(setCurrentUser(user))
                 dispatch(resetLoginForm())
-                history.push('/recipes')
+                history.push('/main')
             }
         })
     }

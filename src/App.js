@@ -8,6 +8,7 @@ import NavBar from './components/NavBar.js';
 import Create from './components/Create.js';
 import Login from './components/Login.js';
 import Footer from './components/Footer.js';
+import Custom from './components/Custom.js';
 import Logout from './components/Logout.js';
 import Signup from './components/Signup.js';
 import RandomRecipesContainer from './containers/RandomRecipesContainer.js';
@@ -35,6 +36,7 @@ class App extends Component {
               <ProtectedRoute exact path='/recipes/:id' component={Recipe} />
               <ProtectedRoute exact path='/create' component={Create} />
               <ProtectedRoute exact path='/myaccount' component={UserContainer} />
+              <ProtectedRoute exact path='/mycustomrecipes' component={Custom} />
       
               <Route exact path='/' render={() => <Home loggedin={this.props.loggedin} />}/>
               <Route exact path='/main' component={Main} />

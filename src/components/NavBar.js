@@ -24,7 +24,7 @@ const NavBar = (props) => {
                     <Dropdown text="My Account" className="item">
                         <Dropdown.Menu >
                             <Dropdown.Item  as={Link} to="/myaccount">Favorite Recipes</Dropdown.Item>
-                            <Dropdown.Item>My Recipes</Dropdown.Item>
+                            <Dropdown.Item as={Link} to="/mycustomrecipes">My Recipes</Dropdown.Item>
                             <Dropdown.Item  as={Link} to="/logout">Log Out</Dropdown.Item>        
                         </Dropdown.Menu>
                     </Dropdown>

@@ -10,7 +10,6 @@ class Create extends Component {
     instructions: "",
     readyInMinutes: "",
     servings: "",
-    featured_image: null,
     error: null,
   };
 
@@ -20,9 +19,9 @@ class Create extends Component {
     });
   };
 
-  onImageChange = event => { 
-    this.setState({ featured_image: event.target.files[0] });
-  };
+  // onImageChange = event => { 
+  //   this.setState({ featured_image: event.target.files[0] });
+  // };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -33,8 +32,7 @@ class Create extends Component {
     formData.append('readyInMinutes', this.state.readyInMinutes);
     formData.append('servings', this.state.servings);
     formData.append('image', this.state.image);
-    formData.append('featured_image', this.state.featured_image);
-    fetch('http://localhost:5000/customrecipes', {
+    fetch('http://localhost:5000/api/v1/customrecipes', {
       method: 'POST',
       body: formData
     })

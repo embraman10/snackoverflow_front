@@ -20,10 +20,10 @@ const Logout = ({ logout, history }) => {
     
     return (    
         <div className="Logout">
-            {/* <form onSubmit={logout}>
+            <form onSubmit={logout}>
                 <input type="submit" value="Click to Log Out Cause Button Issues" className="logoutInput"></input>   
-            </form> */}
-            <Grid textAlign="center" verticalAlign="middle">
+            </form>
+            {/* <Grid textAlign="center" verticalAlign="middle">
                 <Grid.Column style={{ maxWidth: 450 }}>
                 <Segment stacked>
                     <Header as="h2" color="teal" textAlign="center">
@@ -40,7 +40,7 @@ const Logout = ({ logout, history }) => {
                     </Form>
                     </Segment>
                 </Grid.Column>
-            </Grid>
+            </Grid> */}
         </div>
     )
 }

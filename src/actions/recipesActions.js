@@ -33,8 +33,6 @@ export const sendingRecipes = recipes => {
 }
 
 
-////// async
-//fetch random recipe
 export const fetchRecipes = () => {
     const API_KEY = 'ba0505e0cc1248e099029029ee609b79';
     return (dispatch) => {
