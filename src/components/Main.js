@@ -1,62 +1,52 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+// import { recipeShow, resetFavoriteAndReview } from '../actions/recipeActions.js';
+import { fetchRecipes, recipeShow } from '../actions/mainActions.js';
 
 import Carousel from 'react-bootstrap/Carousel' 
 import {
-  Container, Grid, Header,Image, Segment
+  Container, Grid, Header,Image, Segment, Button
 } from "semantic-ui-react";
 
 
-class Main extends React.Component {
+class Main extends Component {
 
-    render() {
-        const renderBtn = this.props.loggedin ? <div><button><Link to="/logout" className="btn btn-full">Log Out</Link></button></div> : <div><button><Link to="/login" className="btn btn-full">Log In</Link></button><button><Link to="/signup" className="btn btn-ghost">Sign Up</Link></button></div>
-        const slickSettings = {
-            autoplay: true,
-            dots: true,
-            speed: 500
-          };
+  state = {
 
+  };
+
+  
+  componentDidMount(){
+    this.props.fetchRecipes()
+  }
+
+  handleClick = (apiId, history) => {
+    this.props.recipeShow(apiId, history)
+  }
+
+  render() {
 
     return (
       <div className="App"> 
         <Container>
           <Segment vertical>
-            <Carousel>
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src="https://v1.nitrocdn.com/eSLhakvQipAhEWtksvxrnpAZbKWwysTe/assets/static/optimized/rev-744f298/wp-content/uploads/2016/11/potato-rollsG.jpg"
-                  alt="First slide"/>
-                <Carousel.Caption>
-                  <h3>First slide label</h3>
-                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src="https://i1.wp.com/www.lavenderandlovage.com/wp-content/uploads/2013/04/Cheese-and-Onion-Scone-Bread-Random-Recipe-151.jpg?fit=1500%2C1096&ssl=1"
-                  alt="Third slide"/>
-                  <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item>
-                      <img
+            <div>
+              <Carousel>
+                  {this.props.recipes!== null ? this.props.recipes.map(recipe => 
+                  <Carousel.Item key={recipe.recipeId}>
+                    <img
                       className="d-block w-100"
-                      src="https://keyassets-p2.timeincuk.net/wp/prod/wp-content/uploads/sites/53/2019/02/Slimming-Worlds-rustic-garlic-chicken-tray-bake.jpg"
-                      alt="Third slide"
-                      />
-                      <Carousel.Caption>
-                      <h3>Third slide label</h3>
-                      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                      </Carousel.Caption>
-              </Carousel.Item>
-            </Carousel>
+                      src={recipe.image}
+                      alt="First slide"/>
+                    <Carousel.Caption>
+                      <Header as='h1' color='teal'>{recipe.title}</Header>
+                      <Button color="teal" onClick={() => this.handleClick(recipe.recipeId, this.props.history)}> View </Button>
+                    </Carousel.Caption>
+                  </Carousel.Item>) : <h1>No recipes found. Please try with another keyword.</h1>}
+              </Carousel>
+            </div>
+
           </Segment>    
-        
         <Container>
           <Segment vertical padded>
             <Grid container stackable textAlign="center" columns={3}>
@@ -69,25 +59,8 @@ class Main extends React.Component {
                 />
                 <Header as="h1">Find Recipes</Header>
                 <p>
-                  Donec sed odio dui. Etiam porta sem malesuada magna mollis
-                  euismod. Nullam id dolor id nibh ultricies vehicula ut id
-                  elit. Morbi leo risus, porta ac consectetur ac, vestibulum at
-                  eros. Praesent commodo cursus magna.
-                </p>
-              </Grid.Column>
-              <Grid.Column>
-                <Image
-                  centered
-                  circular
-                  size="small"
-                  src="https://get.pxhere.com/photo/plant-leaf-dish-food-herb-produce-vegetable-crop-autumn-spicy-thaifood-thaicuisine-curry-chillies-redcurry-currypaste-pestleandmortar-flowering-plant-land-plant-392558.jpg"
-                />
-                <Header as="h1">Create Recipes</Header>
-                <p>
-                  Donec sed odio dui. Etiam porta sem malesuada magna mollis
-                  euismod. Nullam id dolor id nibh ultricies vehicula ut id
-                  elit. Morbi leo risus, porta ac consectetur ac, vestibulum at
-                  eros. Praesent commodo cursus magna.
+                  Search for recipes in the Spoonacular database that includes over 36,000 recipes. 
+                  You can search for key terms or filter by diet preference.
                 </p>
               </Grid.Column>
               <Grid.Column>
@@ -99,21 +72,32 @@ class Main extends React.Component {
                 />
                 <Header as="h1">Save Recipes</Header>
                 <p>
-                  Donec sed odio dui. Etiam porta sem malesuada magna mollis
-                  euismod. Nullam id dolor id nibh ultricies vehicula ut id
-                  elit. Morbi leo risus, porta ac consectetur ac, vestibulum at
-                  eros. Praesent commodo cursus magna.
+                  Find a recipe you like from the database? Leave a review and favorite that recipe for later reference.
                 </p>
                 {/* <Button basic>View details &raquo;</Button> */}
               </Grid.Column>
+              <Grid.Column>
+                <Image
+                  centered
+                  circular
+                  size="small"
+                  src="https://get.pxhere.com/photo/plant-leaf-dish-food-herb-produce-vegetable-crop-autumn-spicy-thaifood-thaicuisine-curry-chillies-redcurry-currypaste-pestleandmortar-flowering-plant-land-plant-392558.jpg"
+                />
+                <Header as="h1">Create Recipes</Header>
+                <p>
+                    Create your own recipes to start building your own digital recipebook! (Currently under construction)
+                </p>
+              </Grid.Column>
             </Grid>
+          </Segment>
+          <Segment padded>
+            <Header as="h2" color="teal"> Future Features: </Header>
           </Segment>
           <Segment vertical padded>
             <Grid stackable>
               <Grid.Column width={10}>
                 <Header as="h1">
                   What's In Your Pantry?{" "}
-                  {/* <span className="sub">It'll blow your mind.</span> */}
                 </Header>
                 <p>
                   Donec ullamcorper nulla non metus auctor fringilla. Vestibulum
@@ -156,7 +140,7 @@ class Main extends React.Component {
             <Grid stackable>
               <Grid.Column width={10}>
                 <Header as="h1">
-                  And lastly, 
+                  Find local restaraunts 
                   {/* <span className="sub">this one.</span> */}
                 </Header>
                 <p>
@@ -182,4 +166,4 @@ class Main extends React.Component {
  }
 }
 
-export default Main;
+export default connect((state)=>({recipes: state.recipesReducer.recipes}), { fetchRecipes, recipeShow })(Main);

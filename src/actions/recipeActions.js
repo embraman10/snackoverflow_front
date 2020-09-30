@@ -1,5 +1,3 @@
-//import { resetRecipes } from './recipesActions.js'
-
 export const sendingRecipeDetails = recipe => {
     const recipeData = {
         title: recipe.title, 
@@ -28,11 +26,6 @@ export const incrementFavorite = () => {
     }
 }
 
-// export const resetRecipe = () => {
-//     return {
-//         type: 'RESET_RECIPE',
-//     }
-// }
 
 export const settingFavorite = (numberOfLikes) => {
     return {
@@ -54,7 +47,6 @@ export const resetFavoriteAndReview = () => {
     }
 }
 
-// Display single review that a user just typed
 export const displayReview = (review) => {
     return {
         type: 'DISPLAY_REVIEW',
@@ -62,24 +54,19 @@ export const displayReview = (review) => {
     }
 }
 
-// Recipe Show (fetching and loading individual Recipe)
 export const recipeShow = (apiId, history) => {
     const API_KEY = 'ba0505e0cc1248e099029029ee609b79';
-    //console.log("fire on show", apiId)
     return (dispatch) => {
         return fetch(`https://api.spoonacular.com/recipes/${apiId}/information?apiKey=${API_KEY}`)
         .then(resp => resp.json())
         .then(recipe => {
             dispatch(sendingRecipeDetails(recipe))
             history.push(`/recipes/${recipe.id}`)
-            //dispatch(resetRecipes())
          })
     }
 }
 
-//Click "like" button - post likes and review
 export const clickLike = (recipe, userId, review) => {
-    //console.log("fire clickLike", recipe, userId, review)
     const HEROKU_URL = 'http://localhost:5000/'
     return (dispatch) => {
         const dataForRails = {
@@ -104,9 +91,7 @@ export const clickLike = (recipe, userId, review) => {
 }
 
 
-//Loading total number of Likes if a recipe has favorites
 export const loadingFavorite = (apiId) => {
-    //console.log("fire loading Favorite", apiId)
     const HEROKU_URL = 'http://localhost:5000/'
     return (dispatch) => {
         return fetch(`${HEROKU_URL}/api/v1/recipes` ,{

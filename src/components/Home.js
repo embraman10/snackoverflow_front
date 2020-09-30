@@ -18,7 +18,7 @@ class Home extends React.Component {
     return (
       <div className="Home-cover">
         <Container className="Home">
-          <Segment vertical textAlign="center">
+          <Segment vertical stacked textAlign="center">
               {/* <Header as="h1" color="teal">Snack Overflow</Header>
               <Header as="h2" color="teal">A webapp for the foodies</Header> */}
               <h1 >Snack Overflow</h1>

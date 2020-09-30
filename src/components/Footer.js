@@ -11,16 +11,21 @@ class Footer extends Component {
       <div className="footer">
         {/* <Container> */}
           <Segment inverted size="small">
-            <Grid columns={3}>
-              <Grid.Column>
-                {/* &copy; 2017 Company, Inc. · <a href="#root">Privacy</a> ·{" "}
-                <a href="#root">Terms</a> */}
+            <Grid columns={5}>
+              <Grid.Column textAlign="center">
+              <a href="#root">Back to top</a>
               </Grid.Column>
-              <Grid.Column>
-                &copy; 2017 Company, Inc. · <a href="#root">Privacy</a> ·{" "}
+              <Grid.Column textAlign="center">
+              <a href="#root">Back to top</a>
                 <a href="#root">Terms</a>
+              </Grid.Column >
+              <Grid.Column textAlign="center">
+                <a href="#root">Back to top</a>
               </Grid.Column>
-              <Grid.Column textAlign="right">
+              <Grid.Column textAlign="center">
+                <a href="#root">Back to top</a>
+              </Grid.Column>
+              <Grid.Column textAlign="center">
                 <a href="#root">Back to top</a>
               </Grid.Column>
             </Grid>

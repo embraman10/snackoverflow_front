@@ -17,14 +17,14 @@ const NavBar = (props) => {
                 <Menu.Item >
                     <Link to="/recipes"> Find Recipes</Link>
                 </Menu.Item>
-                <Menu.Item >
+                {/* <Menu.Item >
                     <Link to="/create"> Create Recipes</Link>
-                </Menu.Item>
+                </Menu.Item> */}
                 <Menu.Menu position="right">
                     <Dropdown text="My Account" className="item">
                         <Dropdown.Menu >
                             <Dropdown.Item  as={Link} to="/myaccount">Favorite Recipes</Dropdown.Item>
-                            <Dropdown.Item as={Link} to="/mycustomrecipes">My Recipes</Dropdown.Item>
+                            {/* <Dropdown.Item as={Link} to="/mycustomrecipes">My Recipes</Dropdown.Item> */}
                             <Dropdown.Item  as={Link} to="/logout">Log Out</Dropdown.Item>        
                         </Dropdown.Menu>
                     </Dropdown>

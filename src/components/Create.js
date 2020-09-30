@@ -27,11 +27,9 @@ class Create extends Component {
     event.preventDefault();
     const formData = new FormData();
     formData.append('title', this.state.title);
+    formData.append('image', this.state.image);
     formData.append('ingredients', this.state.ingredients);
     formData.append('instructions', this.state.instructions);
-    formData.append('readyInMinutes', this.state.readyInMinutes);
-    formData.append('servings', this.state.servings);
-    formData.append('image', this.state.image);
     fetch('http://localhost:5000/api/v1/customrecipes', {
       method: 'POST',
       body: formData
@@ -103,22 +101,6 @@ class Create extends Component {
                         name="instructions"
                         onChange={this.handleChange}
                         value={this.state.instructions}/>
-                  </Form.Field>
-                  <Form.Field required>
-                    <label className="navbar-brand">Ready In Minutes</label>
-                      <input
-                        placeholder="Ready In Minutes"
-                        name="readyInMinutes"
-                        onChange={this.handleChange}
-                        value={this.state.readyInMinutes}/>
-                  </Form.Field>
-                  <Form.Field required>
-                    <label className="navbar-brand">Servings</label>
-                      <input
-                        placeholder="Servings"
-                        name="servings"
-                        onChange={this.handleChange}
-                        value={this.state.servings}/>
                   </Form.Field>
                         {/* <Form.Field required>
                           <label className="navbar-brand">Image</label>

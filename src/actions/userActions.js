@@ -5,7 +5,7 @@ export const uploadingFavorite = recipes => {
     }
 }
 
-// My account page
+
 export const loadingUserInfo = (currentUserId) => {
     const HEROKU_URL = 'http://localhost:5000/'
     return (dispatch) => {
