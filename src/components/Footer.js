@@ -9,8 +9,8 @@ class Footer extends Component {
 
     return (
       <div className="footer">
-        <Container>
-          <Segment inverted vertical>
+        {/* <Container> */}
+          <Segment inverted size="small">
             <Grid columns={3}>
               <Grid.Column>
                 {/* &copy; 2017 Company, Inc. · <a href="#root">Privacy</a> ·{" "}
@@ -25,7 +25,7 @@ class Footer extends Component {
               </Grid.Column>
             </Grid>
           </Segment>
-        </Container>
+        {/* </Container> */}
 
       </div>
     );

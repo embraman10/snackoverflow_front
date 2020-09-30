@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import './index.css'
 import { connect } from 'react-redux';
 import Home from './components/Home.js';
 import Main from './components/Main.js'

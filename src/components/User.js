@@ -31,7 +31,10 @@ class User extends Component {
 
         return (
             <div className="MyAccount">
-                 {user ? <div><h1>Hello, {user.username}</h1><h2>Your Favorite Recipes:</h2></div> : null}
+                 {user ? <div>
+                     {/* <h1>Hello, {user.username}</h1> */}
+                     <h1>Hello, more formatting to come</h1>
+                     <h2>Your Favorite Recipes:</h2></div> : null}
                 <List>{favoriteText}</List>               
             </div>
         )

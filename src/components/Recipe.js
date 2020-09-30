@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { clickLike, displayReview, loadingFavorite } from '../actions/recipeActions.js';
+
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
@@ -22,6 +23,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import Button from '@material-ui/core/Button';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 
+import { Segment, Container } from "semantic-ui-react";
 
 class Recipe extends Component {
 
@@ -71,6 +73,8 @@ class Recipe extends Component {
 
     return(
             <div className="Recipe">
+                <Container>
+                    <Segment stacked padded>
                 <GridList cellHeight={400} cols={1} style={{marginBottom: "3%"}}>
                 <GridListTile>
                 <img src={this.props.recipe.image}></img>
@@ -105,12 +109,13 @@ class Recipe extends Component {
                     Ketogenic: {this.props.recipe.ketogenic ? "Yes" : "No" }</p>
                     <p><IconButton><EmojiNatureIcon /></IconButton>
                     Whole30: {this.props.recipe.whole30 ? "Yes" : "No" }</p>
+
+                    <h3>Ingredients:</h3>
+                    <ul>{ingredients}</ul>
                     
                     <h3>Instructions:</h3>
                     <p>{this.props.recipe.instructions}</p>
                     
-                    <h3>Ingredients:</h3>
-                    <ul>{ingredients}</ul>
                 </div>
 
                 <h3>Recommended reviews:</h3>
@@ -131,7 +136,8 @@ class Recipe extends Component {
                 </form>
 
             <button onClick={this.props.history.goBack}style={{margin: "3% 0"}}><KeyboardBackspaceIcon /><span style={{fontSize: "1rem"}}>Back</span></button>  
-
+            </Segment>
+            </Container>
             </div>
         )
     }

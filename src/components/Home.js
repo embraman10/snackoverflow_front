@@ -1,29 +1,28 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import Carousel from 'react-bootstrap/Carousel' 
-import {
-  Button, Container, Grid, Header,Image, Segment
-} from "semantic-ui-react";
+import { Container, Segment, Header, Button } from "semantic-ui-react";
 
 
 class Home extends React.Component {
 
     render() {
         
-        const renderBtn = this.props.loggedin ? <div><button><Link to="/logout" className="btn btn-full">Log Out</Link></button></div> 
+        const renderBtn = this.props.loggedin ? <div><Button color="teal"><Link to="/logout" >Log Out</Link></Button></div> 
         : 
-        <div><button><Link to="/login" className="btn btn-full">Log In</Link></button>
-        <button><Link to="/signup" className="btn btn-ghost">Sign Up</Link></button></div>
+        <div><Button color="teal"><Link to="/login" >Log In</Link></Button>
+        <Button color="teal"><Link to="/signup" >Sign Up</Link></Button></div>
         
 
 
     return (
       <div className="Home-cover">
         <Container className="Home">
-          <Segment vertical>
-              <h1>Snack Overflow</h1>
-              <h3>Organize your recipe from 360k Recipes</h3>
+          <Segment vertical textAlign="center">
+              {/* <Header as="h1" color="teal">Snack Overflow</Header>
+              <Header as="h2" color="teal">A webapp for the foodies</Header> */}
+              <h1 >Snack Overflow</h1>
+              <h3 >A webapp for the foodies</h3>
               {renderBtn}  
           </Segment>
         </Container>
