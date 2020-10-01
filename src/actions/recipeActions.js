@@ -55,7 +55,7 @@ export const displayReview = (review) => {
 }
 
 export const recipeShow = (apiId, history) => {
-    const API_KEY = 'ba0505e0cc1248e099029029ee609b79';
+    const API_KEY = '5b6da6dfb8344511ac837686cd7d8ebe';
     return (dispatch) => {
         return fetch(`https://api.spoonacular.com/recipes/${apiId}/information?apiKey=${API_KEY}`)
         .then(resp => resp.json())

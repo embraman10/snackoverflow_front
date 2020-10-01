@@ -193,20 +193,16 @@ background-color: #FCF3F3;
 /*----RECIPE-----*/
 
 .Recipe {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(./images/bowl.jpg);
-background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(https://c.pxhere.com/photos/f3/9a/bowl_brass_bowl_vessel_semolina_whole_wheat_semolina_filling_a_trickle_shell-624981.jpg!d);
+  background-size: cover;
     background-position: center;
     width: 100%;
     height: auto;
 background-color: #FCF3F3;
 }
-.Recipe h3 {
-  margin-top: 2%;
-  margin-bottom: 1%;
-  color: #e91e63;
-}
 
-/*----USER (MY ACCOUNT)-----*/
+
+/*----FAVORITE RECIPES-----*/
 .MyAccount h1 {
   color: #555;
 }
@@ -225,9 +221,9 @@ background-color: #FCF3F3;
   color:#48c0df;
 }
 
-/* Logout */
+/* LOGOUT */
 .Logout {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)),url(./images/restaraunt.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),url(./images/restaraunt.jpg);
   background-size: cover;
       background-position: center;
       width: 100%;
@@ -325,131 +321,88 @@ background-color: #FCF3F3;
 }
 
 
+.Favorites {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),url(https://c.pxhere.com/photos/90/82/table_food_rustic_healthy_food-1072091.jpg!d);
+  background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: auto;
+  background-color: #FCF3F3;
+  padding-top: 30%; 
+  height: 100vh;
+  padding: 10% 5%;
+  }
 
-/* html {
-  background: #FAF7F2;
-  background-image: url(https://s3.postimg.org/s1n3ji1ur/paper_fibers_2_X.png);
-  box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-} */
+  .Main {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),url(./images/producebasket.jpg);
+  background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: auto;
+  background-color: #FCF3F3;
+  padding: 2% 2%;
+  }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+  /* Grow */
+  .hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+
+/* COFFEE ICON STEAM */
+.steam {
+  width: 3px;
+	height: 30%;
+	background: white;
+	position: absolute;
+	animation: waft 3s linear infinite;
+	filter: blur(6px);
+  margin-top:10px;
+  bottom: 50%;
 }
 
-.u-clearfix:before,
-.u-clearfix:after {
-  content: " ";
-  display: table;
+.steam-1 {
+  left:14%;
+  /* animation-delay: -1s; */
+  /* opacity: 10%; */
 }
 
-.u-clearfix:after {
-  clear: both;
+.steam-2 {
+  left:15%;
+  /* animation-delay: -2s */
 }
 
-.u-clearfix {
-  *zoom: 1;
+.steam-3 {
+  left:16%;
+  /* animation-delay: -1s */
 }
 
-.subtle {
-  color: #aaa;
+.steam-4 {
+  left:15%;
+  /* animation-delay: -4s */
 }
 
-.card-container {
-  margin: 25px auto 0;
-  position: relative;
-  width: 692px;
-}
+@keyframes waft {
+	0% {
+		transform:translate3d(0,0,0) scale(1);
+		opacity:1;
+	}
+	
+		100% {
+		transform: translate3d(0, -100px,0)  scale(3) ;
+	opacity:0;
 
-.card {
-  background-color: #fff;
-  padding: 30px;
-  position: relative;
-  box-shadow: 0 0 5px rgba(75, 75, 75, .07);
-  z-index: 1;
-}
-
-.card-body {
-  display: inline-block;
-  float: left;
-  width: 310px;
-}
-
-.card-number {
-  margin-top: 15px;
-}
-
-.card-circle {
-  border: 1px solid #aaa;
-  border-radius: 50%;
-  display: inline-block;
-  line-height: 22px;
-  font-size: 12px;
-  height: 25px;
-  text-align: center;
-  width: 25px;
-}
-
-.card-author {
-  display: block;
-  font-size: 12px;
-  letter-spacing: .5px;
-  margin: 15px 0 0;
-  text-transform: uppercase;
-}
-
-.card-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 60px;
-  font-weight: 300;
-  line-height: 60px;
-  margin: 10px 0;
-}
-
-.card-description {
-  display: inline-block;
-  font-weight: 300;
-  line-height: 22px;
-  margin: 10px 0;
-}
-
-.card-read {
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 6px;
-  margin: 5px 0 20px;
-  position: relative;
-  text-align: right;
-  text-transform: uppercase;
-}
-
-.card-read:after {
-  background-color: #b8bddd;
-  content: "";
-  display: block;
-  height: 1px;
-  position: absolute;
-  top: 9px;
-  width: 75%;
-}
-
-.card-tag {
-  float: right;
-  margin: 5px 0 0;
-}
-
-.card-media {
-  float: right;
-}
-
-.card-shadow {
-  background-color: #fff;
-  box-shadow: 0 2px 25px 2px rgba(0, 0, 0, 1), 0 2px 50px 2px rgba(0, 0, 0, 1), 0 0 100px 3px rgba(0, 0, 0, .25);
-  height: 1px;
-  margin: -1px auto 0;
-  width: 80%;
-  z-index: -1;
+	}
 }

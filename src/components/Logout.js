@@ -4,6 +4,7 @@ import { logout } from '../actions/currentUsers.js';
 
 import {
     Button,
+    Container,
     Form,
     Grid,
     Header,
@@ -20,9 +21,28 @@ const Logout = ({ logout, history }) => {
     
     return (    
         <div className="Logout">
-            <form onSubmit={logout}>
-                <input type="submit" value="Click to Log Out Cause Button Issues" className="logoutInput"></input>   
-            </form>
+            <Container verticalAlign="middle">
+                <Grid textAlign="center" verticalAlign="middle" style={{ minHeight: 400 }}>
+                    <Grid.Column style={{ maxWidth: 450 }}>
+                        <Segment stacked raised style={{ maxWidth: 450 }} textAlign="center" color="teal" >
+                            <Header as="h2" >
+                                Are you sure you want to log out?
+                            </Header>
+                            <br></br>
+                            <form onSubmit={logout}>
+                                <Button color="teal" fluid size="large" onSubmit={logout}>
+                                    Log Out
+                                </Button>
+                            </form>
+                            <br></br>
+                            <br></br>
+                            <Button color="teal" fluid size="large" onClick={handleClick}>
+                                Go back!
+                            </Button>
+                        </Segment>
+                    </Grid.Column>
+                </Grid>
+            </Container>
             {/* <Grid textAlign="center" verticalAlign="middle">
                 <Grid.Column style={{ maxWidth: 450 }}>
                 <Segment stacked>
@@ -37,9 +57,7 @@ const Logout = ({ logout, history }) => {
                             <Button color="teal" fluid size="large" onClick={handleClick}>
                             Go back!
                             </Button>
-                    </Form>
-                    </Segment>
-                </Grid.Column>
+
             </Grid> */}
         </div>
     )

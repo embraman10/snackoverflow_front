@@ -13,20 +13,19 @@ class Footer extends Component {
           <Segment inverted size="small">
             <Grid columns={5}>
               <Grid.Column textAlign="center">
-              <a href="#root">Back to top</a>
+                {/* <a href="#root">Back to top</a> */}
               </Grid.Column>
               <Grid.Column textAlign="center">
-              <a href="#root">Back to top</a>
-                <a href="#root">Terms</a>
+                Github
               </Grid.Column >
               <Grid.Column textAlign="center">
-                <a href="#root">Back to top</a>
+                SnackOverflow 2020
               </Grid.Column>
               <Grid.Column textAlign="center">
-                <a href="#root">Back to top</a>
+                LinkedIn
               </Grid.Column>
               <Grid.Column textAlign="center">
-                <a href="#root">Back to top</a>
+                {/* <a href="#root">Back to top</a> */}
               </Grid.Column>
             </Grid>
           </Segment>

@@ -34,7 +34,7 @@ export const sendingRecipes = recipes => {
 
 
 export const fetchRecipes = () => {
-    const API_KEY = 'ba0505e0cc1248e099029029ee609b79';
+    const API_KEY = '5b6da6dfb8344511ac837686cd7d8ebe';
     return (dispatch) => {
         dispatch(loadingRecipes())
         return fetch(`https://api.spoonacular.com/recipes/random?number=6&apiKey=${API_KEY}`)
@@ -45,7 +45,7 @@ export const fetchRecipes = () => {
 
 // search query
 export const searchRecipes = (state) => {
-    const API_KEY = 'ba0505e0cc1248e099029029ee609b79';
+    const API_KEY = '5b6da6dfb8344511ac837686cd7d8ebe';
     return (dispatch) => {
         dispatch(loadingRecipes())
         return fetch(`https://api.spoonacular.com/recipes/search?query=${state.query}&diet=${state.diet}&apiKey=${API_KEY}`)
@@ -111,7 +111,7 @@ export const displayReview = (review) => {
 }
 
 export const recipeShow = (apiId, history) => {
-    const API_KEY = 'ba0505e0cc1248e099029029ee609b79';
+    const API_KEY = '5b6da6dfb8344511ac837686cd7d8ebe';
     return (dispatch) => {
         return fetch(`https://api.spoonacular.com/recipes/${apiId}/information?apiKey=${API_KEY}`)
         .then(resp => resp.json())

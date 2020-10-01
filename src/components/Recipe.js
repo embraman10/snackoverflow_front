@@ -23,7 +23,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import Button from '@material-ui/core/Button';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 
-import { Segment, Container } from "semantic-ui-react";
+import { Segment, Container, Header } from "semantic-ui-react";
 
 class Recipe extends Component {
 
@@ -31,19 +31,16 @@ class Recipe extends Component {
         review: ""
     }
 
-    //Loding total number of "Like"
     componentDidMount() {
         this.props.loadingFavorite(this.props.recipe.recipeId)
     }
 
-    //Like button
     handleClick = (recipe, userId) => {
-        //console.log("like btn:", recipe, userId)
+
         this.props.clickLike(recipe, userId, this.state.review)
     }
 
     handleInputChange = (event) => {
-        // this.props.updateReviewForm({...this.props.review, [event.target.name]: [event.target.value]})
         this.setState({
             review: event.target.value
         })
@@ -51,7 +48,6 @@ class Recipe extends Component {
 
     handleSubmit = (event, recipe, userId) => {
         event.preventDefault()
-        //console.log("review submit", recipe, userId, this.state.review, this.props.history)
         this.props.clickLike(recipe, userId, this.state.review, this.props.history)
         this.props.displayReview(this.state.review)
         this.setState({
@@ -65,80 +61,84 @@ class Recipe extends Component {
             return (
                 <ul key={ing.name}>
                     <li key={ing.name}>{ing.original}: <span>{ing.amount} {ing.unit}</span></li>
-                    </ul>
-                    )
-            }
+                </ul>
+            )
+        }
         )
     
 
     return(
-            <div className="Recipe">
-                <Container>
-                    <Segment stacked padded>
-                <GridList cellHeight={400} cols={1} style={{marginBottom: "3%"}}>
-                <GridListTile>
-                <img src={this.props.recipe.image}></img>
-                <GridListTileBar title={this.props.recipe.title} titlePosition="top"
-              actionIcon={
-                <IconButton>
-                  <StarBorderIcon style={{color: "#FCF3F3"}} />
-                </IconButton>
-              }
-              actionPosition="left">
-                  </GridListTileBar>
-                  </GridListTile> 
-                </GridList>  
+        <div className="Recipe">
+            <Container>
+                <Segment stacked raised padded>
+                        <GridList cellHeight={400} cols={1} style={{marginBottom: "3%"}}>
+                        <GridListTile>
+                        <img src={this.props.recipe.image}></img>
+                        <GridListTileBar title={this.props.recipe.title} titlePosition="top"
+                    actionIcon={
+                        <IconButton>
+                        <StarBorderIcon style={{color: "#FCF3F3"}} />
+                        </IconButton>
+                    }
+                    actionPosition="left">
+                        </GridListTileBar>
+                        </GridListTile> 
+                        </GridList>  
 
-                <IconButton onClick={() => this.handleClick(this.props.recipe, this.props.userId, this.state.review)} style={{color: "#e91e63"}}><Fab style={{backgroundColor: "#f8bbd0", color: "#e91e63"}}><FavoriteBorderIcon /></Fab><span style={{fontSize: "1.2rem"}}>&nbsp;Love:&nbsp;{this.props.favorite}</span></IconButton>
+                        <IconButton onClick={() => this.handleClick(this.props.recipe, this.props.userId, this.state.review)} style={{color: "#e91e63"}}><Fab style={{backgroundColor: "#f8bbd0", color: "#e91e63"}}><FavoriteBorderIcon /></Fab><span style={{fontSize: "1.2rem"}}>&nbsp;Love:&nbsp;{this.props.favorite}</span></IconButton>
 
-                {/* Recipe details */}
-                <div>
-                    <p><IconButton><ScheduleIcon /></IconButton>
-                    Read in Minutes: {this.props.recipe.readyInMinutes}</p>
-                    <p><IconButton><LocalDiningIcon /></IconButton>
-                    Servings: {this.props.recipe.servings}</p>
-                    <p><IconButton><NatureIcon /></IconButton>
-                    Vegetarian: {this.props.recipe.vegetarian ? "Yes" : "No" }</p>
-                    <p><IconButton><NatureIcon /></IconButton>
-                    Vegan: {this.props.recipe.vegan ? "Yes" : "No" }</p>
-                    <p><IconButton><DoneOutlineIcon /></IconButton>
-                    Gluten Free: {this.props.recipe.glutenfree ? "Yes" : "No" }</p>
-                    <p><IconButton><DoneOutlineIcon /></IconButton>
-                    Dairy Free: {this.props.recipe.dairyfree ? "Yes" : "No"}</p>
-                    <p><IconButton><OutdoorGrillIcon /></IconButton>
-                    Ketogenic: {this.props.recipe.ketogenic ? "Yes" : "No" }</p>
-                    <p><IconButton><EmojiNatureIcon /></IconButton>
-                    Whole30: {this.props.recipe.whole30 ? "Yes" : "No" }</p>
+                        <div>
+                            <GridList cols={4} cellHeight={50}>
+                                <p><IconButton><ScheduleIcon /></IconButton>
+                                Read in Minutes: {this.props.recipe.readyInMinutes}</p>
+                                <p><IconButton><LocalDiningIcon /></IconButton>
+                                Servings: {this.props.recipe.servings}</p>
+                                <p><IconButton><NatureIcon /></IconButton>
+                                Vegetarian: {this.props.recipe.vegetarian ? "Yes" : "No" }</p>
+                                <p><IconButton><NatureIcon /></IconButton>
+                                Vegan: {this.props.recipe.vegan ? "Yes" : "No" }</p>
+                                <p><IconButton><DoneOutlineIcon /></IconButton>
+                                Gluten Free: {this.props.recipe.glutenfree ? "Yes" : "No" }</p>
+                                <p><IconButton><DoneOutlineIcon /></IconButton>
+                                Dairy Free: {this.props.recipe.dairyfree ? "Yes" : "No"}</p>
+                                <p><IconButton><OutdoorGrillIcon /></IconButton>
+                                Ketogenic: {this.props.recipe.ketogenic ? "Yes" : "No" }</p>
+                                <p><IconButton><EmojiNatureIcon /></IconButton>
+                                Whole30: {this.props.recipe.whole30 ? "Yes" : "No" }</p>
+                            </GridList>
 
-                    <h3>Ingredients:</h3>
-                    <ul>{ingredients}</ul>
-                    
-                    <h3>Instructions:</h3>
-                    <p>{this.props.recipe.instructions}</p>
-                    
-                </div>
+                            <Header as="h3">Ingredients:</Header>
+                            <ul>{ingredients}</ul>
 
-                <h3>Recommended reviews:</h3>
-                {this.props.reviews.length === 0 ? <p>Write a first review!</p> : this.props.reviews.map(review => <p><IconButton><MoodIcon /></IconButton>{review.review} by {review.username}</p>)}
+                            <br></br>
+                            <Header as="h3">Instructions:</Header>
+                            <p>{this.props.recipe.instructions}</p>
+                            <br></br>
 
-                <h5 style={{marginTop: "1%"}}><IconButton><EmojiEmotionsIcon /></IconButton>{this.props.review ? `${this.props.currentUser}: ${this.props.review}` : null}</h5>
+                        </div>
 
-                <form onSubmit={(event) => this.handleSubmit(event, this.props.recipe, this.props.userId)}>
-                    <TextField type="text" name="review" value={this.state.review} onChange={this.handleInputChange} label="Your Review"
-                    InputProps={{
-                        startAdornment: (
-                        <InputAdornment position="start">
-                            <CreateIcon />
-                        </InputAdornment>
-                         ),
-                      }}/>
-                    <Button type="submit" size="small" style={{color: "#e91e63"}} variant="outlined">Add Review</Button>
-                </form>
+                        <Header as="h3">Recommended reviews:</Header>
+                        {this.props.reviews.length === 0 ? <p>Write a first review!</p> : this.props.reviews.map(review => <p><IconButton><MoodIcon /></IconButton>{review.review} by {review.username}</p>)}
 
-            <button onClick={this.props.history.goBack}style={{margin: "3% 0"}}><KeyboardBackspaceIcon /><span style={{fontSize: "1rem"}}>Back</span></button>  
-            </Segment>
+                        <h5 style={{marginTop: "1%"}}><IconButton><EmojiEmotionsIcon /></IconButton>{this.props.review ? `${this.props.currentUser}: ${this.props.review}` : null}</h5>
+                        <br></br>
+                        <br></br>
+                        <form onSubmit={(event) => this.handleSubmit(event, this.props.recipe, this.props.userId)}>
+                            <TextField type="text" name="review" value={this.state.review} onChange={this.handleInputChange} label="Your Review"
+                            InputProps={{
+                                startAdornment: (
+                                <InputAdornment position="start">
+                                    <CreateIcon />
+                                </InputAdornment>
+                                ),
+                            }}/>
+                            <Button type="submit" size="small" style={{color: "#e91e63"}} variant="outlined">Add Review</Button>
+                        </form>
+
+                    <button onClick={this.props.history.goBack}style={{margin: "3% 0"}}><KeyboardBackspaceIcon /><span style={{fontSize: "1rem"}}>Back</span></button>  
+                </Segment>
             </Container>
-            </div>
+        </div>
         )
     }
 }

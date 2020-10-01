@@ -27,9 +27,9 @@ class App extends Component {
   render() {
     return (
       <Router>
-        {this.props.loggedin ? <NavBar loggedin= {this.props.loggedin} /> : <Home />}
 
         <div className="App">
+        {this.props.loggedin ? <NavBar loggedin= {this.props.loggedin} /> : <Home />}
           <Switch>
               <ProtectedRoute exact path='/logout' component={Logout}/>
               <ProtectedRoute exact path='/recipes' component={RandomRecipesContainer}/>
@@ -43,7 +43,7 @@ class App extends Component {
               <Route exact path='/login' component={Login} />
               <Route exact path='/signup' component={Signup} />         
           </Switch>
-          {/* <Footer/> */}
+          <Footer/>
         </div>
       </Router>
     );
